@@ -17,10 +17,14 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      try {
-        setAnswer(eval(inputValue))
-      } catch (e) {
-        console.error(e);
+      if (inputValue.trim() !== "") {
+        try {
+          setAnswer(eval(inputValue))
+        } catch{
+          setAnswer("!Error")
+        }
+      } else {
+        setAnswer("")
       }
     }, 1000)
     
@@ -33,18 +37,18 @@ function App() {
     setInputValue(prevValue => prevValue + value)
   }
   
-    useEffect(() => {
-      function handleKeyPress(event) {
-        if (numbers.includes(event.key) || operators.includes(event.key)) { 
-          setInputValue(prevValue => prevValue + event.key)
-        }
-    }
+  useEffect(() => {
+    function handleKeyPress(event) {
+      if (numbers.includes(event.key) || operators.includes(event.key)) { 
+        setInputValue(prevValue => prevValue + event.key)
+      }
+  }
 
-    window.addEventListener("keydown", handleKeyPress);
+  window.addEventListener("keydown", handleKeyPress);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
+  return () => {
+    window.removeEventListener("keydown", handleKeyPress);
+  };
   }, []);
  
   
