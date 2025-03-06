@@ -4,8 +4,84 @@
   padding: 2rem;
   text-align: center;
 }
-.container{
+
+.container {
+  display: flex;
+  flex-direction: column;
   background: #1f1e1e;
-  padding: 30px;
-  border: ;
+  padding: 15px;
+  border-radius: 10px;
+  height: 400px;
+  gap: 20px;
+  place-items: center;
+}
+
+.screen {
+  display: flex;
+  height: 100px;
+  border-radius: 5px;
+  width: 100%;
+  background: #222222;
+  flex-direction: column;
+}
+.screen .input {
+  height: 40%;
+}
+
+.screen .display {
+  height: 60%;
+  background: #000;
+  font-size: 45px;
+}
+.screen .input,
+.screen .display{
+  text-align: right;
+  place-items: center;
+  background: transparent;
+  width: 97%;
+  
+}
+.screen .input input{
+  margin-block: 20px;
+  font-size: 20px;
+  text-align: right;
+  background: transparent;
+  outline: none;
+  border: none;
+  width: 90%;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.numberbtn {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.operatorbtns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.operatorbtns button {
+  background: #ff7e05;
+  font-weight: 700 !important;
+}
+
+.numberbtn button,
+.operatorbtns button {
+  display: flex;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 300;
+  height: 60px;
+  width: 60px;
+  outline: none;
 }
