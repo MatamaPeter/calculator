@@ -51,9 +51,10 @@ function App() {
   };
   }, []);
  
-  
-
- 
+  function handleClear() {
+    setInputValue("")
+    setAnswer("")
+  }
 
   
   return (
@@ -80,7 +81,8 @@ function App() {
               {operatorElements}
           </div>
 
-          </div>
+        </div>
+        <button onClick={handleClear}>Clear</button>
       </div>
     </div>
   )
