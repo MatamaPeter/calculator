@@ -6,6 +6,14 @@ function App() {
   const [answer, setAnswer] = useState(inputValue)
   
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "%", "."]
+   const operators = ["+","/","-","*"]
+
+  const numberElements = numbers.map((number) => {
+    return <button onClick={()=>handleClick(number)} key={number}>{number}</button>
+  })
+  const operatorElements = operators.map((operator) => {
+    return <button onClick={()=>handleClick(operator)} key={operator}>{operator}</button>
+  })
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,19 +26,17 @@ function App() {
     
     return ()=>clearTimeout(timer)
   }
-  ,[inputValue])
+    , [inputValue])
+  
+  
+  function handleClick(value) {
+    setInputValue(prevValue => prevValue + value)
+  }
   
  
   
 
-  const operators = ["+","/","-","*"]
-
-  const numberElements = numbers.map((number) => {
-    return <button key={number}>{number}</button>
-  })
-  const operatorElements = operators.map((operator) => {
-    return <button key={operator}>{operator}</button>
-  })
+ 
 
   
   return (
