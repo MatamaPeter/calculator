@@ -2,14 +2,15 @@ import { useState } from "react"
 import "./App.css"
 import { useEffect } from "react"
 function App() {
-  const [inputValue, setInputValue] = useState()
+  const [inputValue, setInputValue] = useState("")
+  const [answer, setAnswer] = useState(inputValue)
   
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "%", "."]
 
   useEffect(() => {
     setTimeout(() => {
       try {
-        console.log(eval(inputValue));
+        setAnswer(eval(inputValue))
       } catch (e) {
         console.error(e);
       }
@@ -42,7 +43,7 @@ function App() {
             />
           </div>
           <div className="display">
-            {inputValue}
+            {answer}
           </div>
 
         </div>
