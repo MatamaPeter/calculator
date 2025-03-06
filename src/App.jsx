@@ -8,13 +8,15 @@ function App() {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "%", "."]
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       try {
         setAnswer(eval(inputValue))
       } catch (e) {
         console.error(e);
       }
-    },1000)
+    }, 1000)
+    
+    return ()=>clearTimeout(timer)
   }
   ,[inputValue])
   
