@@ -5,7 +5,7 @@ function App() {
   const [inputValue, setInputValue] = useState("")
   const [answer, setAnswer] = useState(inputValue)
   
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "%", "."]
+  const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "%", "."]
    const operators = ["+","/","-","*"]
 
   const numberElements = numbers.map((number) => {
@@ -33,6 +33,19 @@ function App() {
     setInputValue(prevValue => prevValue + value)
   }
   
+    useEffect(() => {
+      function handleKeyPress(event) {
+        if (numbers.includes(event.key) || operators.includes(event.key)) { 
+          setInputValue(prevValue => prevValue + event.key)
+        }
+    }
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
  
   
 
